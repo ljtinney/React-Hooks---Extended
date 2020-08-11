@@ -35,6 +35,12 @@ const App = () => {
     setUsers(users.map((user) => (user.id === id ? updatedUser : user)))
   }
 
+  const deleteUser = (id) => {
+    setEditing(false)
+
+    setUsers(users.filter((user) => user.id !== id))
+  }
+
   const deleteUsers = (event) => {
     event.preventDefault()
 
