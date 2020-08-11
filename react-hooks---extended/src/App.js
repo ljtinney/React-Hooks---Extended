@@ -5,12 +5,12 @@ import UserTable from './tables/UserTable'
 
 const App = () => {
 	const usersData = [
-		{ id: 1, name: 'Tania', username: 'floppydiskette' },
-		{ id: 2, name: 'Craig', username: 'siliconeidolon' },
-		{ id: 3, name: 'Ben', username: 'benisphere' },
+		{ id: 1, name: 'Katy', username: 'KittyPurry', spiritAnimal: "kitten" },
+		{ id: 2, name: 'Emma', username: 'NotJuliaRoberts', spiritAnimal: "Chupacabra" },
+		{ id: 3, name: 'Diana', username: 'GleeDancer1105', spiritAnimal: "Capybara" },
 	]
 
-	const initialFormState = { id: null, name: '', username: '' }
+	const initialFormState = { id: null, name: '', username: '', spiritAnimal: '' }
 
 	// Setting state
 	const [ users, setUsers ] = useState(usersData)
@@ -26,7 +26,7 @@ const App = () => {
   const editRow = (user) => {
     setEditing(true)
 
-    setCurrentUser({ id: user.id, name: user.name, username: user.username })
+    setCurrentUser({ id: user.id, name: user.name, username: user.username, spiritAnimal: user.spiritAnimal })
   }
 
   const updateUser = (id, updatedUser) => {
@@ -36,6 +36,8 @@ const App = () => {
   }
 
   const deleteUser = (id) => {
+    setEditing(false)
+
     setUsers(users.filter((user) => user.id !== id))
   }
 
